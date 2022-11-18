@@ -36,7 +36,7 @@ inquirer
 {
     type: 'input',
     name: 'credits',
-    credits: 'Any credits to people who created the repository?'
+    credits: 'Any credits to other people who created the repository?'
 },{
     type: 'input',
     name: 'testinfo',
@@ -45,11 +45,6 @@ inquirer
     type: 'input',
     name: 'projectlic',
     credits: 'what is the license for your project'
-},
-{
-    type: 'input',
-    name: 'contribute',
-    message: 'Any notes on contribution to repo? '
 }
 ]).then((data)=>{
     const readmecontent = generateMarkdown(data);
