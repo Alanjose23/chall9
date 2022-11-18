@@ -10,8 +10,7 @@ const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 // created inquirer prompts 
-inquirer
-  .prompt([{
+const questions = [{
     type: 'input',
     name: 'title',
     message: 'what is the title?'
@@ -46,16 +45,14 @@ inquirer
     name: 'projectlic',
     credits: 'what is the license for your project'
 }
-]).then((data)=>{
-    const readmecontent = generateMarkdown(data);
-
-    fs.writeFile('README.md', readmecontent, (err) =>
-      err ? console.log(err) : console.log('Successfully created README!')
-    );
-  });
+]
 // TODO: Create a function to initialize app
 function init() {
-
+inquirer.prompt(questions).then((data) =>{
+    fs.writeFile('README.md',generateMarkdown(data), (err) =>
+    err ? console.log(err) : console.log('Successfully created README file!')
+  );
+})
 
 }
 
