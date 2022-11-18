@@ -1,9 +1,14 @@
 // TODO: Include packages needed for this application
-const inquirer = require('inquirer');
+// included packages and links to required information
+const inquirer = require("inquirer");
+
+
 const fs = require('fs');
+// link to markdown file
 const mark = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
+// created inquirer prompts 
 inquirer
   .prompt([{
     type: 'input',
@@ -45,7 +50,7 @@ inquirer
     name: 'contribute',
     message: 'Any notes on contribution to repo? '
 }
-]).then();
+]).then((data) => console.log(data));
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}

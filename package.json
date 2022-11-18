@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/Alanjose23/chall9#readme",
   "dependencies": {
-    "inquirer": "^9.1.4"
+    "inquirer": "^8.2.4"
   }
 }
