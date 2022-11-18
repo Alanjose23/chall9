@@ -6,6 +6,7 @@ const inquirer = require("inquirer");
 const fs = require('fs');
 // link to markdown file
 const mark = require('./utils/generateMarkdown');
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 // created inquirer prompts 
@@ -50,11 +51,13 @@ inquirer
     name: 'contribute',
     message: 'Any notes on contribution to repo? '
 }
-]).then((data) => console.log(data));
+]).then((data)=>{
+    const readmecontent = generateMarkdown(data);
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
+    fs.writeFile('README.md', readmecontent, (err) =>
+      err ? console.log(err) : console.log('Successfully created README!')
+    );
+  });
 // TODO: Create a function to initialize app
 function init() {
 
